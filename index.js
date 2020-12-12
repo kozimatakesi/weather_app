@@ -1,6 +1,14 @@
 global.fetch = require('node-fetch');
 
-console.log('こんにちは');
+let count = 0;
+let id = setInterval(function(){
+  count++;
+  callApi();
+  if(count > 5){
+    clearInterval(id);
+  }
+},1000);
+
 async function callApi(){
   const res = await fetch("http://api.openweathermap.org/data/2.5/weather?q=Tokyo&appid=9a4d371b6fc452d3edd2f79b142c8c18&lang=ja&units=metric");
   //console.log(res);
@@ -10,4 +18,4 @@ async function callApi(){
   console.log("現在の" + place + "は" + results.weather[0].description + "です");
 }
 
-callApi();
+//callApi();
