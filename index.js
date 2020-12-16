@@ -23,6 +23,14 @@ async function callApi(){
   let half_day = fore.list[3];
   console.log("12時間後の天気は" + half_day.weather[0].description + "です");
   console.log("12時間後の気温は" + half_day.main.temp + "度です");
+  let judge = half_day.weather[0].main;
+  console.log(judge);
+  if(judge === "Rain"){
+    console.log("傘が必要です");
+  } else {
+    console.log("傘の必要はありません");
+  }
+
 }
 
 //callApi();
