@@ -16,7 +16,7 @@ exports.sendmailer = function(subject, text){
     from: 'riverbook708@gmail.com',
     to: 'riverbook708@gmail.com',
     subject: subject,
-    text: text
+    html: text
   };
 
   // メール送信
