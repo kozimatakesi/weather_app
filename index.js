@@ -28,7 +28,7 @@ async function callApi(){
   const forecast = await fetch("http://api.openweathermap.org/data/2.5/forecast?q=Tokyo&appid=9a4d371b6fc452d3edd2f79b142c8c18&lang=ja&units=metric");
   const fore = await forecast.json();
   const half_day = fore.list[3];
-  const foreCastWeather = "<p>" + nowWeather + "</p>" + "12時間後の天気は" + half_day.weather[0].description + "です";
+  const foreCastWeather = "12時間後の天気は" + half_day.weather[0].description + "です";
   console.log(foreCastWeather);
 
   //12時間後の東京都の天気が雨だった場合、メールを送信する
@@ -41,5 +41,13 @@ async function callApi(){
     console.log("傘の必要はありません");
   }
   //メールを送信する　第一引数：件名　第二引数：本文
-  mailFunction.sendmailer("お天気情報", foreCastWeather);
+  mailFunction.sendmailer("お天気情報", newLine(nowWeather) + newLine(foreCastWeather));
 }
+
+//改行用関数
+function newLine(text){
+  let array = [];
+  array.push("<p>" + text + "</p>");
+  let pplus = array.join("");
+  return pplus;
+};
