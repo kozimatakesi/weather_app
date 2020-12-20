@@ -16,7 +16,7 @@ exports.sendmailer = function(subject, text){
     from: '送信元のアドレス',
     to: '送信先のアドレス',
     subject: subject,
-    text: text
+    html: text
   };
 
   // メール送信
