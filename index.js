@@ -27,6 +27,7 @@ async function callApi(){
   console.log(judge);
   if(judge === "Rain"){
     console.log("傘が必要です");
+    //ここにメール送信の関数をいれる
   } else {
     console.log("傘の必要はありません");
   }
