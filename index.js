@@ -28,12 +28,11 @@ async function callApi(){
   console.log(judge);
   if(judge === "Rain"){
     console.log("傘が必要です");
-    //ここにメール送信の関数をいれる
+    //メールを送信する　第一引数：件名　第二引数：本文
+    mailFunction.sendmailer("お天気情報", newLine(nowWeather) + newLine(foreCastWeather));
   } else {
     console.log("傘の必要はありません");
   }
-  //メールを送信する　第一引数：件名　第二引数：本文
-  mailFunction.sendmailer("お天気情報", newLine(nowWeather) + newLine(foreCastWeather));
 }
 
 //改行用関数
