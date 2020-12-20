@@ -6,15 +6,15 @@ exports.sendmailer = function(subject, text){
     port: 465,
     secure: true, // SSL
     auth: {
-        user: 'riverbook708@gmail.com',
-        pass: 'motokawa22'
+        user: 'gmailアドレス',
+        pass: 'パスワード'
     }
   };
   const smtp = nodemailer.createTransport(smtpConfig);
 
   const message = {
-    from: 'riverbook708@gmail.com',
-    to: 'riverbook708@gmail.com',
+    from: '送信元のアドレス',
+    to: '送信先のアドレス',
     subject: subject,
     text: text
   };
