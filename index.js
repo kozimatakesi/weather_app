@@ -4,18 +4,10 @@ const mailFunction = require('/Users/kawamoto/weather_app/send_mail_function.js'
 global.fetch = require('node-fetch');
 
 //2分毎に実行する
-/*
-let count = 0;
-let id = setInterval(function(){
-  count++;
-  callApi();
-  if(count < 0){
-    clearInterval(id);
-  }
-},120000);
-*/
-
 callApi();
+let id = setInterval(function(){
+  callApi();
+},120000);
 
 async function callApi(){
   //現在の東京都の天気を取得
